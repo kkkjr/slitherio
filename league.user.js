@@ -9,8 +9,10 @@ App = {
         this.detectPlay();
     },
     CheckComponents: function () {
-        if (!Slitherio) {
-            this.log('missing component Slitherio');
+        if (Slitherio) {
+            this.log('slitherio object:' + Slitherio);
+        } else {
+            this.log('missing slitherio object');
         }
     },
     Init: function () {
