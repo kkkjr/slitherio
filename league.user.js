@@ -8,4 +8,4 @@
 // @grant        none
 // ==/UserScript==
 
-alert('hello');
+console.log('hello there');
