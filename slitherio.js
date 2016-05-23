@@ -1,4 +1,4 @@
-var Slitherio = {
+Slitherio = {
     getSnakes: function () {
         return window.snakes;
     },

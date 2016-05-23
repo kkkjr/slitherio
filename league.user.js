@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         slitherio-league
 // @namespace    http://slither.io/
-// @version      1.0.4
+// @version      1.0.5
 // @description  slitherio-league
 // @author       Daniel Peder & David Bender
 // @match        http://slither.io/
@@ -11,7 +11,7 @@
 // killboard - who killed who
 // top scores
 
-var App = {
+App = {
     Run: function () {
         this.log('pre-init')
         this.Init();
