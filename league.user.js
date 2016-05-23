@@ -22,24 +22,23 @@ App = {
         console.log(msg);
     },
     detectPlay: function () {
-        if (!Slitherio.isPlaying()) {
-            this.log('detect play');
+        if (Slitherio.isPlaying()) {
+            this.log('playing started');
+            this.detectEndPlay();
+        } else {
             window.setTimeout(function () {
                 App.detectPlay();
-            }, 300);
-        } else {
-            this.log('playing');
-            this.detectEndPlay();
+            }, 500);
         }
     },
     detectEndPlay: function () {
-        if (Slitherio.isPlaying()) {
+        if (!Slitherio.isPlaying()) {
+            this.log('playing stopped');
+            this.detectPlay()
+        } else {
             window.setTimeout(function () {
                 App.detectEndPlay()
             }, 1000);
-        } else {
-            this.log('end playing');
-            this.detectPlay()
         }
     },
 };
