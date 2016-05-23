@@ -23,7 +23,7 @@ App = {
     },
     detectPlay: function () {
         if (!Slitherio.isPlaying()) {
-            this.log('detect play');
+            this.log('detect play'+App.detectPlay);
             window.setTimeout(App.detectPlay, 300);
         } else {
             this.log('playing');
