@@ -13,7 +13,8 @@
 
 App = {
     Run: function () {
-        this.log('pre-init')
+        this.log('pre-init');
+        this.CheckComponents();
         this.Init();
         this.detectPlay();
     },
