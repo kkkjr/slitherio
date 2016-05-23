@@ -11,4 +11,7 @@ Slitherio = {
     isPlaying: function () {
         return window.playing;
     },
+    clickPlayButton: function(){
+        window.play_btn.elem.click();
+    }
 };
