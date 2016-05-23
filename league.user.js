@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         slitherio-league
 // @namespace    http://slither.io/
-// @version      1.0.3
+// @version      1.0.4
 // @description  slitherio-league
 // @author       Daniel Peder & David Bender
 // @match        http://slither.io/
@@ -13,9 +13,14 @@
 
 var App = {
     Run: function () {
-        console.log('pre-init')
+        this.log('pre-init')
         this.Init();
         this.detectPlay();
+    },
+    CheckComponents: function () {
+        if (!Slitherio) {
+            this.log('missing component Slitherio');
+        }
     },
     Init: function () {
         this.log('init');

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         slitherio-league
 // @namespace    http://slither.io/
-// @version      1.0.2
+// @version      1.0.4
 // @description  slitherio-league
 // @author       Daniel Peder & David Bender
 // @match        http://slither.io/
