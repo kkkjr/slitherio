@@ -33,7 +33,7 @@ App = {
         }
     },
     detectEndPlay: function () {
-        if (!Slitherio.isPlaying()) {
+        if (Slitherio.isPlaying()) {
             window.setTimeout(function () {
                 App.detectEndPlay()
             }, 1000);
