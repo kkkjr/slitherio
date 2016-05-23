@@ -1,13 +1,3 @@
-// ==UserScript==
-// @name         slitherio-league
-// @namespace    http://slither.io/
-// @version      1.0.5
-// @description  slitherio-league
-// @author       Daniel Peder & David Bender
-// @match        http://slither.io/
-// @grant        none
-// ==/UserScript==
-
 // killboard - who killed who
 // top scores
 
