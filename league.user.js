@@ -25,7 +25,7 @@ var App = {
     },
     detectPlay: function () {
         if (!Slitherio.isPlaying()) {
-            window.setTimeout(App.detectPlay, 300);
+            window.setTimeout(this.detectPlay, 300);
         } else {
             this.log('playing');
             this.detectEndPlay();
@@ -33,7 +33,7 @@ var App = {
     },
     detectEndPlay: function () {
         if (!Slitherio.isPlaying()) {
-            window.setTimeout(App.detectEndPlay, 1000);
+            window.setTimeout(this.detectEndPlay, 1000);
         } else {
             this.log('end playing');
             this.detectPlay()
