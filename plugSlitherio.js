@@ -29,6 +29,7 @@ Slitherio = {
             var nsi_scores, nsi_names;
             for (var i = 0, imax = nsis.length; i < imax; i++) {
                 var nsi = nsis[i];
+                console.log('nsi class ' + nsi.className);
                 if (nsi.className !== 'nsi') {
                     continue;
                 }
