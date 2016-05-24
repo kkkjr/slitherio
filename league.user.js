@@ -6,7 +6,7 @@ App = {
         this.log('pre-init');
         if (this.Init()) {
             this.AutoPlay();
-        }else{
+        } else {
             // report problems
         }
     },
@@ -16,13 +16,10 @@ App = {
         }
     },
     Init: function () {
-        this.log('init; ver: ' + GM_info.version);
+        this.log('init');
         var init_ok = true;
         init_ok = init_ok && this.CheckComponents();
         return init_ok;
-    },
-    log: function (msg) {
-        console.log(msg);
     },
     AutoPlay: function () {
         this.Play();
@@ -36,6 +33,7 @@ App = {
     detectPlay: function () {
         if (Slitherio.isPlaying()) {
             this.log('playing started');
+            this.logVersion();
             this.detectEndPlay();
         } else {
             window.setTimeout(function () {
@@ -53,6 +51,15 @@ App = {
             }, 1000);
         }
     },
+    log: function (msg) {
+        console.log(msg);
+    },
+    getVersion: function () {
+        return GM_info.script.version;
+    },
+    logVersion: function () {
+        this.log('script ver: ' + this.getVersion());
+    }
 };
 
 App.Run();
