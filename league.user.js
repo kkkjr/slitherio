@@ -2,7 +2,9 @@
 // top scores
 //
 
-App = {
+// SLApp - Slitherio League App
+
+SLApp = {
     Run: function () {
         this.log('pre-init');
         if (this.Init()) {
@@ -43,7 +45,7 @@ App = {
             this.detectEndPlay();
         } else {
             window.setTimeout(function () {
-                App.detectPlay();
+                SLApp.detectPlay();
             }, 500);
         }
     },
@@ -54,7 +56,7 @@ App = {
             this.AutoPlay();
         } else {
             window.setTimeout(function () {
-                App.detectEndPlay()
+                SLApp.detectEndPlay()
             }, 1000);
         }
     },
@@ -80,4 +82,5 @@ App = {
     }
 };
 
-App.Run();
+console.log('SLApp Run');
+SLApp.Run();
