@@ -8,12 +8,16 @@ App = {
             this.AutoPlay();
         } else {
             // report problems
+            this.log('init failed');
         }
     },
     CheckComponents: function () {
+        var isok = true;
         if (Slitherio === void 0) {
             this.log('missing module: slitherio.js ');
+            isok = false;
         }
+        return isok;
     },
     Init: function () {
         this.log('init');
