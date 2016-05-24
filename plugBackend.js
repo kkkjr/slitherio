@@ -3,9 +3,10 @@ Backend = {
         url: 'http://192.168.0.201/slitherio_league_backend',
     },
     PostRaw: function (raw) {
+        console.log('post raw go');
         GM_xmlhttpRequest({
             method: "POST",
-            url: this._.url,
+            url: Backend._.url,
             data: raw,
             headers: {
                 "Content-Type": "application/json"
@@ -26,9 +27,9 @@ Backend = {
     Report: function () {
         var raw = JSON.stringify({
             demo: 'data',
-            demo_ts: (new Date())
+            demo_ts: (new Date()).valueOf(),
         });
-        this.PostRaw(raw);
+        Backend.PostRaw(raw);
     },
     Loop: function () {
         if (Slitherio.isPlaying()) {
