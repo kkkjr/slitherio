@@ -4,9 +4,11 @@
 App = {
     Run: function () {
         this.log('pre-init');
-        this.CheckComponents();
-        this.Init();
-        this.detectPlay();
+        if (this.Init()) {
+            this.AutoPlay();
+        }else{
+            // report problems
+        }
     },
     CheckComponents: function () {
         if (Slitherio === void 0) {
@@ -15,6 +17,9 @@ App = {
     },
     Init: function () {
         this.log('init; ver: ' + GM_info.version);
+        var init_ok = true;
+        init_ok = init_ok && this.CheckComponents();
+        return init_ok;
     },
     log: function (msg) {
         console.log(msg);
