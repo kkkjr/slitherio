@@ -1,6 +1,6 @@
 Backend = {
     _: {
-        url: 'http://192.168.0.201/slitherio_league_backend/',
+        url: 'http://app.zone.cz/slitherio_league_backend/',
     },
     PostRaw: function (raw) {
         console.log('post raw go');
