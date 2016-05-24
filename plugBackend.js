@@ -4,18 +4,22 @@ Backend = {
     },
     PostRaw: function (raw) {
         console.log('post raw go');
-        var response = GM_xmlhttpRequest({
-            method: "POST",
-            url: Backend._.url,
-            data: raw,
-            headers: {
-                "Content-Type": "application/json"
-            },
-            onload: function (response) {
-                console.log('post raw done');
-                console.log(response);
-            }
-        });
+        try {
+            var response = GM_xmlhttpRequest({
+                method: "POST",
+                url: Backend._.url,
+                data: raw,
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                onload: function (response) {
+                    console.log('post raw done');
+                    console.log(response);
+                }
+            });
+        } catch (e) {
+            console.log('xhr err ' + e);
+        }
         console.log('post response');
         console.log(response);
     },
