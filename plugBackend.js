@@ -17,11 +17,11 @@ Backend = {
                     console.log(response);
                 }
             });
+            console.log('post response');
+            console.log(response);
         } catch (e) {
             console.log('xhr err ' + e);
         }
-        console.log('post response');
-        console.log(response);
     },
     Run: function () {
         this.Init();
