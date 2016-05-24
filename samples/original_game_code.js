@@ -2594,8 +2594,7 @@ function connect() {
         window.ws = ws;
         ws.onmessage = function (b) {
             if (ws == this && (b = new Uint8Array(b.data), rdps += b.length, 2 <= b.length)) {
-                lptm =
-                        cptm;
+                lptm = cptm;
                 cptm = Date.now();
                 var c = b[0] << 8 | b[1],
                         e = cptm - lptm;

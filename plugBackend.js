@@ -26,10 +26,7 @@ Backend = {
         console.log('Backend init');
     },
     Report: function () {
-        var raw = JSON.stringify({
-            demo: 'data',
-            demo_ts: (new Date()).valueOf(),
-        });
+        var raw = JSON.stringify(Slitherio.getSnakeTrackables());
         Backend.PostRaw(raw);
     },
     Loop: function () {
