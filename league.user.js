@@ -9,17 +9,19 @@ App = {
         this.detectPlay();
     },
     CheckComponents: function () {
-        if (Slitherio) {
-            this.log('slitherio object:' + Slitherio);
-        } else {
-            this.log('missing slitherio object');
+        if (Slitherio === void 0) {
+            this.log('missing module: slitherio.js ');
         }
     },
     Init: function () {
-        this.log('init');
+        this.log('init; ver: ' + GM_info.version);
     },
     log: function (msg) {
         console.log(msg);
+    },
+    AutoPlay: function () {
+        this.Play();
+        this.detectPlay();
     },
     Play: function () {
         window.setTimeout(function () {
@@ -39,8 +41,7 @@ App = {
     detectEndPlay: function () {
         if (!Slitherio.isPlaying()) {
             this.log('playing stopped');
-            this.Play();
-            this.detectPlay();
+            this.AutoPlay();
         } else {
             window.setTimeout(function () {
                 App.detectEndPlay()
