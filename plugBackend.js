@@ -14,10 +14,10 @@ Backend = {
                 xmlhttp.open('POST', Backend._.url, true);
                 xmlhttp.send(raw);
             } catch (e) {
-                console.log('XMLHttpRequest err ' + e);
+                this.log('XMLHttpRequest err ' + e);
             }
         } else {
-            console.log('missing posting method');
+            this.log('missing posting method');
         }
     }
     ,
@@ -26,24 +26,27 @@ Backend = {
         this.Loop();
     },
     Init: function () {
-        console.log('Backend init');
+        this.log('Backend init');
+        Slitherio.Top10.Init();
     },
-    ReportTop10: function (top10) {
+    ReportTop10: function () {
+        var top10 = Slitherio.Top10.getResults();
         this.PostJSON(top10);
+        Slitherio.Top10.CleanUp();
     },
     Report: function () {
-        var snakes = Slitherio.getSnakeTrackables();
-        var raw = JSON.stringify(snakes);
-        Backend.PostRaw(raw);
     },
     Loop: function () {
         if (Slitherio.isPlaying()) {
-            Backend.Report();
+            Slitherio.Top10.Collect();
         }
         window.setTimeout(function () {
             Backend.Loop();
-        }, 1000);
+        }, 2000);
+    },
+    log: function (msg) {
+        console.log(msg);
     },
 };
 
-//Backend.Run();
+Backend.Run();

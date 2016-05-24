@@ -49,6 +49,7 @@ App = {
     detectEndPlay: function () {
         if (!Slitherio.isPlaying()) {
             this.log('playing stopped');
+            Backend.ReportTop10();
             this.AutoPlay();
         } else {
             window.setTimeout(function () {
