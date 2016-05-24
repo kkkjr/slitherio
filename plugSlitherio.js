@@ -39,6 +39,7 @@ Slitherio = {
                 }
                 nsi_scores = nsis[i + 1].querySelectorAll('span');
                 nsi_names = nsis[i + 2].querySelectorAll('span');
+                break;
             }
             if (!nsi_scores.length) {
                 return;
@@ -50,7 +51,7 @@ Slitherio = {
                     continue;
                 }
                 this.table[name] = score;
-                console.log(['score', name, score].join(" : "));
+                console.log(['score', name, score].join(" | "));
             }
         },
         CleanUp: function () {
