@@ -1,5 +1,6 @@
 // killboard - who killed who
 // top scores
+//
 
 App = {
     Run: function () {
