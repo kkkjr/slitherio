@@ -8,6 +8,9 @@ Slitherio = {
     getFoods: function () {
         return window.foods;
     },
+    getCurrentIP: function () {
+        return window.bso.ip;
+    },
     isPlaying: function () {
         return window.playing;
     },
@@ -15,21 +18,18 @@ Slitherio = {
         window.play_btn.elem.click();
     },
     Top10: {
-        table: {},
+        table: null,
         getResults: function () {
             return this.table;
         },
         Collect: function () {
-            console.log('collecting...');
             var nsis = document.querySelectorAll('div.nsi');
             if (!nsis.length) {
                 return;
             }
-            console.log('nsis...');
             var nsi_scores, nsi_names;
             for (var i = 0, imax = nsis.length; i < imax; i++) {
                 var nsi = nsis[i];
-                console.log('nsi class ' + nsi.className);
                 if (nsi.className !== 'nsi') {
                     continue;
                 }
@@ -44,18 +44,19 @@ Slitherio = {
             if (!nsi_scores || !nsi_scores.length) {
                 return;
             }
-            console.log('scores...');
             for (var i = 0; i < 10; i++) {
                 var name = nsi_names[i].innerText, score = nsi_scores[i].innerText;
+                if (!i && score > this.table.top_score) {
+                    this.table.top_score = score;
+                }
                 if (!name.trim().length) {
                     continue;
                 }
-                this.table[name] = score;
-                console.log(['score', name, score].join(" | "));
+                this.table.scores[name] = score;
             }
         },
         CleanUp: function () {
-            this.table = {};
+            this.table = {server: Slitherio.getCurrentIP(), scores: {}, top_score: 0};
         },
         Init: function () {
             this.CleanUp();
