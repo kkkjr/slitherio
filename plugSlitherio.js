@@ -18,9 +18,9 @@ Slitherio = {
         window.play_btn.elem.click();
     },
     Top10: {
-        table: null,
+        table: {},
         getResults: function () {
-            return this.table;
+            return {server: Slitherio.getCurrentIP(), scores: this.table};
         },
         Collect: function () {
             var nsis = document.querySelectorAll('div.nsi');
@@ -45,21 +45,18 @@ Slitherio = {
                 return;
             }
             for (var i = 0; i < 10; i++) {
-                var name = nsi_names[i].innerText, score = nsi_scores[i].innerText;
-                if (!i && score > this.table.top_score) {
-                    this.table.top_score = score;
-                }
+                var name = nsi_names[i].innerText, score = parseInt(nsi_scores[i].innerText);
                 if (!name.trim().length) {
                     continue;
                 }
-                this.table.scores[name] = score;
+                this.table[name] = score;
             }
         },
         CleanUp: function () {
-            this.table = {server: Slitherio.getCurrentIP(), scores: {}, top_score: 0};
+            this.table = {};
         },
         Init: function () {
             this.CleanUp();
-        }
+        },
     },
 };
