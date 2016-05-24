@@ -28,6 +28,7 @@ App = {
     AutoPlay: function () {
         this.Play();
         this.detectPlay();
+        this.RefreshCheck(); // sometimes do refresh for healthy run
     },
     Play: function () {
         window.setTimeout(function () {
@@ -57,6 +58,12 @@ App = {
     },
     log: function (msg) {
         console.log(msg);
+    },
+    RefreshCheck_: 10, // how many times to refresh
+    RefreshCheck: function () {
+        if (this.RefreshCheck_-- <= 0) {
+            location.reload();
+        }
     },
     getVersion: function () {
         return GM_info.script.version;
