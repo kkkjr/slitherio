@@ -38,7 +38,11 @@ Backend = {
     },
     Loop: function () {
         if (Slitherio.isPlaying()) {
-            Slitherio.Top10.Collect();
+            try {
+                Slitherio.Top10.Collect();
+            } catch (e) {
+                this.log('collect err ' + e);
+            }
         }
         window.setTimeout(function () {
             Backend.Loop();
