@@ -1,7 +1,10 @@
 Backend = {
     _: {
-        //url: 'http://app.zone.cz/slitherio_league_backend/',
         url: 'http://192.168.0.201/slitherio_league_backend/',
+    },
+    PostJSON: function (json) {
+        var raw = JSON.stringify(json);
+        this.PostRaw(raw);
     },
     PostRaw: function (raw) {
         //console.log('post raw go');
@@ -25,8 +28,12 @@ Backend = {
     Init: function () {
         console.log('Backend init');
     },
+    ReportTop10: function (top10) {
+        this.PostJSON(top10);
+    },
     Report: function () {
-        var raw = JSON.stringify(Slitherio.getSnakeTrackables());
+        var snakes = Slitherio.getSnakeTrackables();
+        var raw = JSON.stringify(snakes);
         Backend.PostRaw(raw);
     },
     Loop: function () {
@@ -39,4 +46,4 @@ Backend = {
     },
 };
 
-Backend.Run();
+//Backend.Run();
