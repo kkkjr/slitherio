@@ -20,7 +20,12 @@ Slitherio = {
             return this.table;
         },
         Collect: function () {
+            console.log('collecting...');
             var nsis = document.querySelectorAll('div.nsi');
+            if (!nsis.length) {
+                return;
+            }
+            console.log('nsis...');
             var nsi_scores, nsi_names;
             for (var i = 0, imax = nsis.length; i < imax; i++) {
                 var nsi = nsis[i];
@@ -34,6 +39,10 @@ Slitherio = {
                 nsi_scores = nsi_items;
                 nsi_names = nsis[i + 1].querySelectorAll('span');
             }
+            if (!nsi_scores.length) {
+                return;
+            }
+            console.log('scores...');
             for (var i = 0; i < 10; i++) {
                 var name = nsi_names[i].innerText, score = nsi_scores[i].innerText;
                 if (!name.trim().length) {
