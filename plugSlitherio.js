@@ -37,11 +37,11 @@ Slitherio = {
                 if (nsi_items.length !== 10) {
                     continue;
                 }
-                nsi_scores = nsis[i + 1].querySelectorAll('span');
-                nsi_names = nsis[i + 2].querySelectorAll('span');
+                nsi_scores = nsis[i].querySelectorAll('span');
+                nsi_names = nsis[i + 1].querySelectorAll('span');
                 break;
             }
-            if (!nsi_scores.length) {
+            if (!nsi_scores || !nsi_scores.length) {
                 return;
             }
             console.log('scores...');
