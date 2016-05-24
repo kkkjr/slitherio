@@ -59,10 +59,12 @@ App = {
     log: function (msg) {
         console.log(msg);
     },
-    RefreshCheck_: 10, // how many times to refresh
+    RefreshCheck_: 3, // how many times to refresh
     RefreshCheck: function () {
-        if (this.RefreshCheck_-- <= 0) {
+        if (this.RefreshCheck_-- < 0) {
+            this.log('Refreshing ...');
             location.reload();
+
         } else {
             this.log('Plays to refresh #' + this.RefreshCheck_);
         }
