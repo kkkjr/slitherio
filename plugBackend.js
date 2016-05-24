@@ -1,10 +1,10 @@
 Backend = {
     _: {
-        url: 'http://192.168.0.201/slitherio_league_backend',
+        url: 'http://192.168.0.201/slitherio_league_backend/',
     },
     PostRaw: function (raw) {
         console.log('post raw go');
-        GM_xmlhttpRequest({
+        var response = GM_xmlhttpRequest({
             method: "POST",
             url: Backend._.url,
             data: raw,
@@ -16,6 +16,8 @@ Backend = {
                 console.log(response);
             }
         });
+        console.log('post response');
+        console.log(response);
     },
     Run: function () {
         this.Init();
