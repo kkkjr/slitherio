@@ -1,35 +1,15 @@
 Backend = {
     _: {
-        url: 'http://app.zone.cz/slitherio_league_backend/',
+        //url: 'http://app.zone.cz/slitherio_league_backend/',
+        url: 'http://192.168.0.201/slitherio_league_backend/',
     },
     PostRaw: function (raw) {
-        console.log('post raw go');
-        if (typeof (GM_xmlhttpRequest) === 'function') {
-            try {
-                var response = GM_xmlhttpRequest({
-                    method: "POST",
-                    url: Backend._.url,
-                    data: raw,
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    onload: function (response) {
-                        console.log('post raw done');
-                        console.log(response);
-                    }
-                });
-                console.log('post response');
-                console.log(response);
-            } catch (e) {
-                console.log('GM_xmlhttpRequest err ' + e);
-            }
-        }
-        else
+        //console.log('post raw go');
         if (window.XMLHttpRequest) {
             try {
                 xmlhttp = new XMLHttpRequest();
                 xmlhttp.open('POST', Backend._.url, true);
-                xmlhttp.send('hello there');
+                xmlhttp.send(raw);
             } catch (e) {
                 console.log('XMLHttpRequest err ' + e);
             }
