@@ -20,7 +20,7 @@ Slitherio = {
     Top10: {
         table: {},
         getResults: function () {
-            return {server: Slitherio.getCurrentIP(), scores: this.table};
+            return {server: Slitherio.getCurrentIP(), timestamp: (new Date()).valueOf(), scores: this.table};
         },
         Collect: function () {
             var nsis = document.querySelectorAll('div.nsi');
