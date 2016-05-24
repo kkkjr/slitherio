@@ -4,7 +4,7 @@ Backend = {
     },
     PostRaw: function (raw) {
         console.log('post raw go');
-        if (GM_xmlhttpRequest) {
+        if (typeof (GM_xmlhttpRequest) === 'function') {
             try {
                 var response = GM_xmlhttpRequest({
                     method: "POST",
@@ -25,7 +25,7 @@ Backend = {
             }
         }
         else
-        if (XMLHttpRequest) {
+        if (window.XMLHttpRequest) {
             try {
                 xmlhttp = new XMLHttpRequest();
                 xmlhttp.open('POST', Backend._.url, true);
@@ -33,6 +33,8 @@ Backend = {
             } catch (e) {
                 console.log('XMLHttpRequest err ' + e);
             }
+        } else {
+            console.log('missing posting method');
         }
     }
     ,
