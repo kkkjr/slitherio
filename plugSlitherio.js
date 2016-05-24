@@ -37,8 +37,8 @@ Slitherio = {
                 if (nsi_items.length !== 10) {
                     continue;
                 }
-                nsi_scores = nsi_items;
-                nsi_names = nsis[i + 1].querySelectorAll('span');
+                nsi_scores = nsis[i + 1].querySelectorAll('span');
+                nsi_names = nsis[i + 2].querySelectorAll('span');
             }
             if (!nsi_scores.length) {
                 return;
