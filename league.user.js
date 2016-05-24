@@ -63,7 +63,10 @@ App = {
     RefreshCheck: function () {
         if (this.RefreshCheck_-- <= 0) {
             location.reload();
+        } else {
+            this.log('Plays to refresh #' + this.RefreshCheck_);
         }
+
     },
     getVersion: function () {
         return GM_info.script.version;
