@@ -40,6 +40,7 @@ Slitherio = {
                     continue;
                 }
                 this.table[name] = score;
+                console.log(['score', name, score].join(" : "));
             }
         },
         CleanUp: function () {
