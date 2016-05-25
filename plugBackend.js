@@ -34,6 +34,10 @@ Backend = {
         this.PostJSON(top10);
         Slitherio.Top10.CleanUp();
     },
+    ReportServers: function () {
+        var servers = Slitherio.getServers();
+        this.PostJSON(servers);
+    },
     Report: function () {
     },
     Loop: function () {

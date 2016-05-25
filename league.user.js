@@ -67,8 +67,10 @@ SLApp = {
     RefreshCheck: function () {
         if (this.RefreshCheck_-- <= 0) {
             this.log('Refreshing ...');
-            location.reload();
-
+            Backend.ReportServers();
+            window.setTimeout(function () {
+                location.reload();
+            }, 1000);
         } else {
             this.log('Plays to refresh #' + this.RefreshCheck_);
         }
