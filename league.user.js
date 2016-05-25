@@ -74,7 +74,7 @@ SLApp = {
             SLApp.log('Refresh issued');
             window.setTimeout(function () {
                 SLApp.log('Refreshing now ...');
-                location.reload();
+                location.reload(1);
             }, 1000);
         } else {
             this.log('Plays to refresh #' + this.RefreshCheck_);
