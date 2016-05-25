@@ -66,7 +66,11 @@ SLApp = {
     RefreshCheck_: 5, // how many times to refresh
     RefreshCheck: function () {
         if (this.RefreshCheck_-- <= 0) {
-            Backend.ReportServers();
+            try {
+                Backend.ReportServers();
+            } catch (e) {
+                SLApp.log('backedn report servers err' + e);
+            }
             SLApp.log('Refresh issued');
             window.setTimeout(function () {
                 SLApp.log('Refreshing now ...');
