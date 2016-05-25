@@ -13,11 +13,13 @@ Slitherio = {
         //window.bso { ip: "213.239.194.144", po: 446, ac: 150, wg: 155, clu: 2, cluo: Object, ptm: 89, ptv: 0.5308219178082192 }
     },
     getServers: function () {
-        var servers = Object.assign({},window.bso.cluo);
-        for(var i=0,imax=servers.sos.length;i<imax;i++){
-            servers.sos[i].cluo = null;
+        var servers = Object.assign({}, window.bso.cluo);
+        for (var i = 0, imax = servers.sos.length; i < imax; i++) {
+            delete servers.sos[i].cluo;
         }
-        return servers;
+        var server = Object.assign({}, window.bso);
+        delete server.cluo;
+        return [server, servers];
     },
     isPlaying: function () {
         return window.playing;
