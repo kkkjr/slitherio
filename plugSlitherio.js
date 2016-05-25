@@ -13,7 +13,7 @@ Slitherio = {
         //window.bso { ip: "213.239.194.144", po: 446, ac: 150, wg: 155, clu: 2, cluo: Object, ptm: 89, ptv: 0.5308219178082192 }
     },
     getServers: function () {
-        return {bso: window.bso, cluo: window.bso.cluo};
+        return window.bso;
     },
     isPlaying: function () {
         return window.playing;
