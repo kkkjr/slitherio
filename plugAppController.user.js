@@ -34,8 +34,8 @@ AppController = {
         this.RefreshCheck(); // sometimes do refresh for healthy run
     },
     Play: function () {
+        Slitherio.setNick();
         window.setTimeout(function () {
-            Slitherio.setNick();
             Slitherio.clickPlayButton();
         }, 2000);
     },
