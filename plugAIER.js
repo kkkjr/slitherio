@@ -12,7 +12,7 @@ AIER = {
         this.setPlayState(true);
     },
     Tick: function () {
-        if (!this.setPlayState()) {
+        if (!AIER.setPlayState()) {
             return;
         }
         window.xm = Math.floor(Math.random() * 100) - 50;
