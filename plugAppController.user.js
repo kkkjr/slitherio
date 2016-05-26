@@ -2,9 +2,9 @@
 // top scores
 //
 
-// SLApp - Slitherio League App
+// AppController - Slitherio League App
 
-SLApp = {
+AppController = {
     Run: function () {
         this.log('pre-init');
         if (this.Init()) {
@@ -35,6 +35,7 @@ SLApp = {
     },
     Play: function () {
         window.setTimeout(function () {
+            Slitherio.setNick();
             Slitherio.clickPlayButton();
         }, 2000);
     },
@@ -45,7 +46,7 @@ SLApp = {
             this.detectEndPlay();
         } else {
             window.setTimeout(function () {
-                SLApp.detectPlay();
+                AppController.detectPlay();
             }, 500);
         }
     },
@@ -56,7 +57,7 @@ SLApp = {
             this.AutoPlay();
         } else {
             window.setTimeout(function () {
-                SLApp.detectEndPlay()
+                AppController.detectEndPlay()
             }, 1000);
         }
     },
@@ -69,11 +70,11 @@ SLApp = {
             try {
                 Backend.ReportServers();
             } catch (e) {
-                SLApp.log('backedn report servers err' + e);
+                AppController.log('backedn report servers err' + e);
             }
-            SLApp.log('Refresh issued');
+            AppController.log('Refresh issued');
             window.setTimeout(function () {
-                SLApp.log('Refreshing now ...');
+                AppController.log('Refreshing now ...');
                 location.reload(true); // force full reload without cache
             }, 1000);
         } else {
@@ -89,5 +90,5 @@ SLApp = {
     }
 };
 
-console.log('SLApp Run');
-SLApp.Run();
+console.log('AppController Run');
+AppController.Run();
