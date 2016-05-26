@@ -2,9 +2,9 @@
 // top scores
 //
 
-// AppController - Slitherio League App
+// AIER - Artifical Intelligence -er
 
-AppController = {
+AIER = {
     Run: function () {
         this.log('pre-init');
         if (this.Init()) {
@@ -46,7 +46,7 @@ AppController = {
             this.detectEndPlay();
         } else {
             window.setTimeout(function () {
-                AppController.detectPlay();
+                AIER.detectPlay();
             }, 500);
         }
     },
@@ -57,7 +57,7 @@ AppController = {
             this.AutoPlay();
         } else {
             window.setTimeout(function () {
-                AppController.detectEndPlay()
+                AIER.detectEndPlay()
             }, 1000);
         }
     },
@@ -70,11 +70,11 @@ AppController = {
             try {
                 Backend.ReportServers();
             } catch (e) {
-                AppController.log('backedn report servers err' + e);
+                AIER.log('backedn report servers err' + e);
             }
-            AppController.log('Refresh issued');
+            AIER.log('Refresh issued');
             window.setTimeout(function () {
-                AppController.log('Refreshing now ...');
+                AIER.log('Refreshing now ...');
                 location.reload(true); // force full reload without cache
             }, 1000);
         } else {
@@ -90,5 +90,5 @@ AppController = {
     }
 };
 
-console.log('AppController Run');
-AppController.Run();
+console.log('AIER Run');
+AIER.Run();

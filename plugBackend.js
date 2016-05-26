@@ -31,12 +31,12 @@ Backend = {
     },
     ReportTop10: function () {
         var top10 = Slitherio.Top10.getResults();
-        this.PostJSON({report: 'Top10', script_version: SLApp.getVersion(), data: top10});
+        this.PostJSON({report: 'Top10', script_version: AIER.getVersion(), data: top10});
         Slitherio.Top10.CleanUp();
     },
     ReportServers: function () {
         var servers = Slitherio.getServers();
-        this.PostJSON({report: 'Servers', script_version: SLApp.getVersion(), data: servers});
+        this.PostJSON({report: 'Servers', script_version: AIER.getVersion(), data: servers});
     },
     Report: function () {
     },
