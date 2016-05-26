@@ -2,9 +2,9 @@
 // top scores
 //
 
-// AIER - Artifical Intelligence -er
+// AppController - Artifical Intelligence -er
 
-AIER = {
+AppController = {
     Run: function () {
         this.log('pre-init');
         if (this.Init()) {
@@ -43,21 +43,23 @@ AIER = {
         if (Slitherio.isPlaying()) {
             this.log('playing started');
             this.logVersion();
+            AIER.Play();
             this.detectEndPlay();
         } else {
             window.setTimeout(function () {
-                AIER.detectPlay();
+                AppController.detectPlay();
             }, 500);
         }
     },
     detectEndPlay: function () {
         if (!Slitherio.isPlaying()) {
             this.log('playing stopped');
+            AIER.Stop();
             Backend.ReportTop10();
             this.AutoPlay();
         } else {
             window.setTimeout(function () {
-                AIER.detectEndPlay()
+                AppController.detectEndPlay()
             }, 1000);
         }
     },
@@ -70,11 +72,11 @@ AIER = {
             try {
                 Backend.ReportServers();
             } catch (e) {
-                AIER.log('backedn report servers err' + e);
+                AppController.log('backedn report servers err' + e);
             }
-            AIER.log('Refresh issued');
+            AppController.log('Refresh issued');
             window.setTimeout(function () {
-                AIER.log('Refreshing now ...');
+                AppController.log('Refreshing now ...');
                 location.reload(true); // force full reload without cache
             }, 1000);
         } else {
@@ -90,5 +92,5 @@ AIER = {
     }
 };
 
-console.log('AIER Run');
-AIER.Run();
+console.log('AppController Run');
+AppController.Run();
