@@ -28,7 +28,11 @@ Slitherio = {
         window.play_btn.elem.click();
     },
     setNick: function (nick) {
-        document.getElementById('nick').value = nick ? nick : '_____ GAMEO.CZ _____';
+        try {
+            document.getElementById('nick').value = nick ? nick : '_____ GAMEO.CZ _____';
+        } catch (e) {
+            console.log('set nick ERR: ' + e);
+        }
     },
     Top10: {
         table: {},
