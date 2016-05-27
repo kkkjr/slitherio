@@ -9,6 +9,7 @@ AIER = {
         return this._.play && true;
     },
     Play: function () {
+        console.log('AIER Play');
         this.setPlayState(true);
     },
     Tick: function () {
@@ -17,9 +18,11 @@ AIER = {
         }
         window.xm = Math.floor(Math.random() * 100) - 50;
         window.ym = Math.floor(Math.random() * 100) - 50;
+        console.log(['xm/ym', window.xm, window.ym].join(' | '));
         window.setTimeout(AIER.Tick, Math.floor(Math.random() * 2000 + 500));
     },
     Stop: function () {
+        console.log('AIER Stop');
         this.setPlayState(false);
     },
 };
