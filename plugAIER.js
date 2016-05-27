@@ -11,6 +11,7 @@ AIER = {
     Play: function () {
         console.log('AIER Play');
         this.setPlayState(true);
+        AIER.Tick();
     },
     Tick: function () {
         if (!AIER.setPlayState()) {
@@ -18,7 +19,7 @@ AIER = {
         }
         window.xm = Math.floor(Math.random() * 100) - 50;
         window.ym = Math.floor(Math.random() * 100) - 50;
-        console.log(['xm/ym', window.xm, window.ym].join(' | '));
+        //console.log(['xm/ym', window.xm, window.ym].join(' | '));
         window.setTimeout(AIER.Tick, Math.floor(Math.random() * 2000 + 500));
     },
     Stop: function () {
