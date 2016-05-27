@@ -19,6 +19,7 @@ AIER = {
         }
         window.xm = Math.floor(Math.random() * 100) - 50;
         window.ym = Math.floor(Math.random() * 100) - 50;
+        window.setAcceleration(Math.random()<0.2);
         //console.log(['xm/ym', window.xm, window.ym].join(' | '));
         window.setTimeout(AIER.Tick, Math.floor(Math.random() * 2000 + 500));
     },
