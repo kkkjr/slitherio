@@ -2,16 +2,27 @@ Backend = {
     _: {
         url: 'http://192.168.0.201/slitherio_league_backend/',
     },
-    PostJSON: function (json) {
-        var raw = JSON.stringify(json);
-        this.PostRaw(raw);
+    getUrl: function (report) {
+        var url = Backend._.url.toString();
+        if (report) {
+            url += '?' + ['report', report].join('=');
+        }
+        return  url;
     },
-    PostRaw: function (raw) {
+    PostJSON: function (json) {
+        var report = 'default';
+        if (json['report']) {
+            report = json['report'].toString();
+        }
+        var raw = JSON.stringify(json);
+        this.PostRaw(raw, report);
+    },
+    PostRaw: function (raw, report) {
         //console.log('post raw go');
         if (window.XMLHttpRequest) {
             try {
                 xmlhttp = new XMLHttpRequest();
-                xmlhttp.open('POST', Backend._.url, true);
+                xmlhttp.open('POST', Backend.getUrl(report), true);
                 xmlhttp.send(raw);
             } catch (e) {
                 this.log('XMLHttpRequest err ' + e);
@@ -56,5 +67,4 @@ Backend = {
         console.log(msg);
     },
 };
-
 Backend.Run();
