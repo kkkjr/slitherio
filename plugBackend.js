@@ -49,7 +49,11 @@ Backend = {
         var servers = Slitherio.getServers();
         this.PostJSON({report: 'Servers', script_version: AppController.getVersion(), data: servers});
     },
-    Report: function () {
+    ReportFoods: function () {
+        this.Report('Foods', Slitherio.getFoods());
+    },
+    Report: function (report, data) {
+        this.PostJSON({'report': report, script_version: AppController.getVersion(), data: data});
     },
     Loop: function () {
         if (Slitherio.isPlaying()) {

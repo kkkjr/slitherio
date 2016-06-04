@@ -1,3 +1,4 @@
+// Artificial Intelligence playER
 AIER = {
     _: {
         play: false,

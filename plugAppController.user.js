@@ -58,6 +58,10 @@ AppController = {
             Backend.ReportTop10();
             this.AutoPlay();
         } else {
+            // while still playing
+            Backend.ReportFoods();
+            
+            // continue
             window.setTimeout(function () {
                 AppController.detectEndPlay()
             }, 1000);
